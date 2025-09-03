@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesan Tersimpan</title>
+
+    <!-- Redirect otomatis -->
+    <script>
+      setTimeout(function () {
+        window.location.href = "index.html";
+      }, 3000);
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #fff;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 40px;
+        background: #f4f4f4;
+        border-radius: 30px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        position: relative;
+        text-align: center;
+      }
+
+      .logo {
+        display: block;
+        margin: -40px auto 20px;
+      }
+
+      h2 {
+        color: #34699a;
+        margin-bottom: 40px;
+      }
+
+      .back-arrow {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        text-decoration: none;
+        font-size: 28px;
+        color: #333;
+        transition: 0.2s ease;
+      }
+
+      .back-arrow:hover {
+        color: #34699a;
+        transform: scale(1.1);
+      }
+
+      .check-icon {
+        width: 90px;
+        height: 90px;
+        background-color: #34699a;
+        color: #fff;
+        font-size: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: #2e4e74;
+      }
+
+      .message {
+        font-size: 1.1rem;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto 20px;
+        line-height: 1.6;
+      }
+
+      .redirect-text {
+        font-size: 0.95rem;
+        color: #777;
+        margin-bottom: 30px;
+      }
+
+      .footer {
+        margin-top: 40px;
+      }
+
+      .footer img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 30px 20px;
+          margin: 30px 20px;
+        }
+
+        .logo {
+          width: 180px;
+        }
+
+        .back-arrow {
+          font-size: 24px;
+          top: 10px;
+          left: 10px;
+        }
+
+        .check-icon {
+          width: 70px;
+          height: 70px;
+          font-size: 36px;
+        }
+
+        .title {
+          font-size: 1.6rem;
+        }
+
+        .message {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Tombol kembali -->
+      <a href="coba.html" class="back-arrow" title="Kembali">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 1-.5.5H3.707l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 1 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"
+          />
+        </svg>
+      </a>
+
+      <!-- Logo -->
+      <img
+        src="images/tambahkan 1.png"
+        alt="Logo BPS"
+        class="logo"
+        width="230"
+      />
+
+      <h2>Silakan hubungi kami melalui pesan</h2>
+
+      <!-- Ikon berhasil -->
+      <div class="check-section">
+        <div class="check-icon">✔</div>
+        <h1 class="title">Tersimpan</h1>
+        <p class="message">
+          Pesan Anda telah berhasil dikirim. Terima kasih atas partisipasi Anda.
+          Kami akan menindaklanjuti laporan atau pengaduan Anda secepatnya untuk
+          meningkatkan kualitas layanan kami.
+        </p>
+        <p class="redirect-text">
+          Anda akan dialihkan kembali dalam 3 detik...
+        </p>
+      </div>
+
+      <!-- Footer dengan gambar -->
+      <footer class="footer">
+        <div
+          class="about-contacts"
+          style="display: flex; justify-content: center; gap: 40px"
+        >
+          <img
+            src="images/Gambarsosialmedia3.png"
+            alt="Sosial Media"
+            width="400"
+          />
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

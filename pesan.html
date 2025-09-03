@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hubungi BPS Kota Sorong</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+
+      .logo {
+        display: block;
+        margin: 0 auto 20px;
+        width: 180px;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        color: #34699a;
+      }
+
+      .form-box {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      label {
+        font-weight: 600;
+        margin-top: 6px;
+        font-size: 0.95rem;
+      }
+
+      input,
+      textarea {
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 0.95rem;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      button {
+        margin-top: 12px;
+        padding: 10px 0;
+        background-color: #34699a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #2a537f;
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .about-contacts {
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      .about-contacts img {
+        max-width: 90%;
+        height: auto;
+      }
+
+      .response-message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          margin: 25px 15px;
+          padding: 20px;
+        }
+
+        .logo {
+          width: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="coba.html" class="back-arrow">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 1-.5.5H3.707l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 1 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"
+          />
+        </svg>
+      </a>
+
+      <img src="images/tambahkan 1.png" alt="Logo BPS" class="logo" />
+      <h2>Silahkan Hubungi kami melalui Pesan</h2>
+
+      <form class="form-box" id="contactForm">
+        <label for="name">Nama</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Masukkan nama anda"
+          required
+        />
+
+        <label for="jobs">Pekerjaan/Mahasiswa</label>
+        <input
+          type="text"
+          id="jobs"
+          name="jobs"
+          placeholder="Masukkan pekerjaan anda"
+          required
+        />
+
+        <label for="service">Layanan Yang Pernah Digunakan</label>
+        <input
+          type="text"
+          id="service"
+          name="service"
+          placeholder="Contoh: Data Statistik, dll"
+        />
+
+        <label for="message">Pesan Anda</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Tulis pesan anda di sini"
+          required
+        ></textarea>
+
+        <button type="submit" id="submitBtn">Kirim Pesan</button>
+      </form>
+
+      <div
+        id="responseMessage"
+        class="response-message"
+        style="display: none"
+      ></div>
+
+      <div class="about-contacts">
+        <img src="images/Gambarsosialmedia3.png" alt="Instagram" width="360" />
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const button = document.getElementById("submitBtn");
+          const responseDiv = document.getElementById("responseMessage");
+
+          // Reset pesan sebelumnya
+          responseDiv.style.display = "none";
+          responseDiv.className = "response-message";
+
+          // Disable button
+          button.disabled = true;
+          button.textContent = "Mengirim...";
+
+          const formData = new FormData(form);
+
+          fetch(
+            "https://script.google.com/macros/s/AKfycbxnOtL7G1PsgX9acoqj15RlbwL1JYYMTcBgrDry9BxLrRn9mYwerxv_mUXtbMDaKuUI/exec",
+            {
+              method: "POST",
+              mode: "cors",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: new URLSearchParams(formData),
+            }
+          )
+            .then((response) => {
+              console.log("Response status:", response.status);
+              console.log("Response ok:", response.ok);
+              return response.text();
+            })
+            .then((data) => {
+              console.log("Response data:", data);
+
+              // Coba parse sebagai JSON
+              try {
+                const result = JSON.parse(data);
+                if (result.status === "success") {
+                  // Sukses - tampilkan pesan atau redirect
+                  responseDiv.innerHTML = "✅ Pesan berhasil dikirim!";
+                  responseDiv.className = "response-message success";
+                  responseDiv.style.display = "block";
+
+                  // Reset form
+                  form.reset();
+
+                  // Optional: redirect setelah 2 detik
+                  setTimeout(() => {
+                    window.location.href = "tersimpan.html";
+                  }, 2000);
+                } else {
+                  throw new Error(result.message || "Gagal mengirim pesan");
+                }
+              } catch (e) {
+                // Jika bukan JSON, cek apakah mengandung "success"
+                if (data.toLowerCase().includes("success")) {
+                  responseDiv.innerHTML = "✅ Pesan berhasil dikirim!";
+                  responseDiv.className = "response-message success";
+                  responseDiv.style.display = "block";
+
+                  form.reset();
+
+                  setTimeout(() => {
+                    window.location.href = "tersimpan.html";
+                  }, 1000);
+                } else {
+                  throw new Error("Response tidak valid: " + data);
+                }
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+
+              // Coba alternative method jika fetch gagal
+              if (error.message.includes("fetch")) {
+                // Fallback menggunakan form submission
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action =
+                  "https://script.google.com/macros/s/AKfycbxnOtL7G1PsgX9acoqj15RlbwL1JYYMTcBgrDry9BxLrRn9mYwerxv_mUXtbMDaKuUI/exec";
+                form.target = "_blank";
+
+                // Add form data
+                const formData = new FormData(
+                  document.getElementById("contactForm")
+                );
+                for (let [key, value] of formData.entries()) {
+                  const input = document.createElement("input");
+                  input.type = "hidden";
+                  input.name = key;
+                  input.value = value;
+                  form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+
+                responseDiv.innerHTML =
+                  "📤 Form dikirim dalam tab baru. Periksa apakah berhasil.";
+                responseDiv.className = "response-message";
+                responseDiv.style.display = "block";
+              } else {
+                responseDiv.innerHTML =
+                  "❌ Pesan gagal dikirim: " + error.message;
+                responseDiv.className = "response-message error";
+                responseDiv.style.display = "block";
+              }
+            })
+            .finally(() => {
+              // Reset button
+              button.disabled = false;
+              button.textContent = "Kirim Pesan";
+            });
+        });
+    </script>
+  </body>
+</html>
