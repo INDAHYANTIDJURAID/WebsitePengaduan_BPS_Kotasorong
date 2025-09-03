@@ -196,6 +196,12 @@
             background: #2F4F4F;
             border-radius: 50px 50px 0 0;
         }
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
 
         .medical-icon {
             position: absolute;
@@ -305,6 +311,20 @@
         }
 
         /* Responsive Design */
+ @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about h2 {
+                font-size: 2rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -331,6 +351,78 @@
 
             .footer-contacts {
                 justify-content: center;
+            }
+        }
+        
+         @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            /* Header Extra Small */
+            .logo-icon img {
+                max-width: 160px;
+            }
+
+            /* Hero Extra Small */
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+
+            .hero-illustration img {
+                max-height: 250px;
+            }
+
+            /* About Extra Small */
+            .about {
+                padding: 40px 0;
+            }
+
+            .about h2 {
+                font-size: 1.6rem;
+            }
+
+            .about p {
+                font-size: 0.95rem;
+            }
+
+            /* Features Extra Small */
+            .features {
+                padding: 40px 0;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .feature-card p {
+                font-size: 0.9rem;
+            }
+
+            /* Footer Extra Small */
+            .footer-logo img {
+                max-width: 120px;
+            }
+
+            .footer-contacts img {
+                max-width: 250px;
             }
         }
 
@@ -446,6 +538,22 @@
     </footer>
 
     <script>
+          // Mobile menu toggle
+        function toggleMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            nav.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+        }
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -493,3 +601,4 @@
 </body>
 
 </html>
+
