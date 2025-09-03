@@ -123,7 +123,7 @@
   </head>
   <body>
     <div class="container">
-      <a href="coba.html" class="back-arrow">
+      <a href="index.html" class="back-arrow">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="26"
@@ -250,7 +250,6 @@
                   throw new Error(result.message || "Gagal mengirim pesan");
                 }
               } catch (e) {
-                // Jika bukan JSON, cek apakah mengandung "success"
                 if (data.toLowerCase().includes("success")) {
                   responseDiv.innerHTML = "✅ Pesan berhasil dikirim!";
                   responseDiv.className = "response-message success";
@@ -314,3 +313,4 @@
     </script>
   </body>
 </html>
+
